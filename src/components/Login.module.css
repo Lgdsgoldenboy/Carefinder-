@@ -1,0 +1,88 @@
+.forgot-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+   background: radial-gradient(98.93% 98.93% at 1.12% 1.07%, #001E37 0%, #666368 35.33%, #FAC6AE 62.36%, #50545D 80.38%, #FAC6AE 100%);
+  }
+  
+  .forgot-form h2{
+    color: hsl(0, 100%, 60%);
+  }
+  
+  .forgot-form input{
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .forgot-form button{
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    background: radial-gradient(93.92% 93.92% at 6.08% 34.5%, #67747C 7.55%, #FAC6AE 100%);
+      color: hsl(0, 100%, 50%);
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      align-items: center;
+  }
+  
+  .forgot-form button:hover{
+    background: radial-gradient(93.92% 93.92% at 6.08% 34.5%, #4e595f 7.55%, #c09683 100%);
+  }
+  
+  .registration-successful {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .success-message-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .registration-successful h1 {
+    color: #4CAF50;
+  }
+  
+  .registration-successful p {
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  .registration-successful .login-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .registration-successful .login-button:hover {
+    background-color: #45a049;
+  } 
+  
+  @media screen and (max-width: 480px) {
+    .forgot-form input,
+    .forgot-form button,
+    .registration-successful .login-button {
+      font-size: 14px;
+    }
+  
+    .registration-successful h1 {
+      font-size: 24px;
+    }
+  
+    .registration-successful p {
+      font-size: 14px;
+    }
+  }

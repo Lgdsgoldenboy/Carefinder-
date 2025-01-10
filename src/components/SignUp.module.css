@@ -1,0 +1,324 @@
+.sign-up-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(98.93% 98.93% at 1.12% 1.07%, #001E37 0%, #666368 35.33%, #FAC6AE 62.36%, #50545D 80.38%, #FAC6AE 100%);
+
+  }
+  
+  .sign-up-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 30%;
+  }
+  
+  .avatar-circle {
+    position: absolute;
+    top: -50px;
+    background-color: #001E37;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .avatar-icon svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .sign-up-form input {
+    width: 76%;
+    padding: 10px;
+    margin-left: 21px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #001E37;
+    background-color: #67747C;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .sign-up-form input::placeholder {
+    position: absolute;
+    color: #ddd;
+  }
+
+  
+.signup .user-icon {
+    position: absolute;
+    top: 80px;
+    left: 48px;
+    background:#001E37;
+    border: 7px solid #001E37;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.signup .mail-icon{
+    position: absolute;
+    top: 151px;
+    left: 48px;
+    background:#001E37;
+    border: 7px solid #001E37;
+    border-radius: 5px 0px 0px 5px;
+} 
+
+.signup .lock-icon {
+    position: absolute;
+    top: 223px;
+    left: 48px;
+    background:#001E37;
+    border: 7px solid #001E37;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.signup .lock-icon2 {
+  position: absolute;
+  top: 293px;
+  left: 48px;
+  background:#001E37;
+  border: 7px solid #001E37;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.log-cont .mail-icon2 {
+  position: absolute;
+  left: -12px;
+  background:#001E37;
+  border: 1px solid #001E37;
+  border-radius: 5px 0px 0px 5px;
+  padding: 10px;
+}
+
+.log-cont .loc-icon {
+  position: absolute;
+  left: -12px;
+  background:#001E37;
+  border: 1px solid #001E37;
+  border-radius: 5px 0px 0px 5px;
+  padding: 10px;
+}
+
+
+  .login-link {
+    margin-top: 10px;
+    color: #ffffff;
+  }
+  
+  
+
+  .login-link a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    color: #001E37;
+  }
+  
+  .create-account-button {
+    width: 20%;
+    padding: 12px;
+    margin-top: 0;
+    border: none;
+    border-radius:  0 0 5px 5px;
+    background: radial-gradient(93.92% 93.92% at 6.08% 34.5%, #67747C 7.55%, #FAC6AE 100%);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .create-account-button:hover {
+    background: radial-gradient(93.92% 93.92% at 6.08% 34.5%, #4e595f 7.55%, #c09683 100%);
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(98.93% 98.93% at 1.12% 1.07%, #001E37 0%, #666368 35.33%, #FAC6AE 62.36%, #50545D 80.38%, #FAC6AE 100%);
+  }
+
+  .av-circle {
+    margin: 0 auto;
+    transform: translateY(-15px);
+    background-color: #001E37;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .av-icon svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .login-form {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+  }
+  
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7a7a7a;
+  }
+  
+  input {
+    width: 90%;
+    padding:1rem 0.75rem 0.85rem 2.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #67747C;;
+    color: white;
+    font-size: 16px;
+  }
+  
+  input::placeholder {
+    color: #aaa;
+    font-size: 18px;
+  }
+  
+  .signup-link {
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .signup-link a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .signup-link a:hover {
+    color: #001E37;
+  }
+  
+  .login-button {
+    width: 60%;
+    padding: 10px;
+    margin-top: 0px;
+    border: none;
+    border-radius:  0 0 5px 5px;
+    background: radial-gradient(93.92% 93.92% at 6.08% 34.5%, #67747C 7.55%, #FAC6AE 100%);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    transform: translateY(75px);
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-button:hover {
+    background: radial-gradient(93.92% 93.92% at 6.08% 34.5%, #48535a 7.55%, #c79e8c 100%);
+  }
+
+  .forgot {
+    border: none;
+    background: none;
+    color: red;
+    margin-left: 60%;
+    margin-bottom: 10px;;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .sign-up-form {
+      padding: 20px;
+      width: 80%;
+    }
+
+    .login-form {
+      padding: 20px;
+      width: 80%;
+    }
+
+    .user-icon, .mail-icon, .lock-icon {
+      border: 10px solid #001E37;
+  }
+  
+  .sign-up-form input {
+    width:68%
+  }
+
+  .create-account-button {
+    width: 50%;
+    padding: 12px;
+  }
+  .avatar-circle {
+    top: -80px;
+  }
+
+  .login-button {
+    transform: translateY(63px);
+    width: 40%;
+  }
+
+  .signup .user-icon {
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    background:#001E37;
+    border: 7px solid #001E37;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.signup .mail-icon{
+    position: absolute;
+    top: 131px;
+    left: 40px;
+    background:#001E37;
+    border: 7px solid #001E37;
+    border-radius: 5px 0px 0px 5px;
+} 
+
+.signup .lock-icon {
+    position: absolute;
+    top: 203px;
+    left: 40px;
+    background:#001E37;
+    border: 7px solid #001E37;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.signup .lock-icon2 {
+  position: absolute;
+  top: 273px;
+  left: 40px;
+  background:#001E37;
+  border: 7px solid #001E37;
+  border-radius: 5px 0px 0px 5px;
+}
+
+  }
