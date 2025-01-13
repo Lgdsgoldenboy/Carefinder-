@@ -2,10 +2,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Contact.css"; // Assuming specific styles for Contact
+import { useTheme } from './ThemeContext'; // Import the useTheme hook
 
 const Contact: React.FC = () => {
+  const { theme } = useTheme(); // Get theme and toggle function
+
   return (
-    <div className="contact-container">
+    <div className={`contact-container ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
       <h2>Contact Us</h2>
       <p>If you have any questions or need assistance, feel free to reach out to us!</p>
 

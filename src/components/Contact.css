@@ -40,14 +40,35 @@
   /* src/styles/styles.css */
 body {
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-  }
-  
-  .light-theme {
+}
+
+.light-theme {
     background-color: #ffffff; /* Light background */
     color: #000000; /* Dark text */
-  }
-  
-  .dark-theme {
+}
+
+.dark-theme {
     background-color: #333333; /* Dark background */
     color: #ffffff; /* Light text */
-  }
+}
+
+/* Additional styles for components */
+.landing-container, .about-container, .dashboard-content {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.theme-toggle-button {
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 15px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.theme-toggle-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

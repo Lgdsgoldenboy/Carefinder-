@@ -2,13 +2,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./About.css"; // Assuming specific styles for About
-import { useTheme } from './ThemeContext'; // Import the useTheme hook
 
 const About: React.FC = () => {
-  const { theme, toggleTheme } = useTheme(); // Get theme and toggle function
-
   return (
-    <div className={`about-container ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
+    <div className="about-container">
       <h2>About Carefinder</h2>
       <p>
         Carefinder is a platform designed to help users find hospitals in their area quickly and efficiently.
@@ -32,9 +29,6 @@ const About: React.FC = () => {
       <Link to="/" className="home-button">
         Return to Home
       </Link>
-      <button onClick={toggleTheme} className="theme-toggle-button">
-        Toggle Theme
-      </button>
     </div>
   );
 };
