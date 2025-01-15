@@ -1,55 +1,59 @@
+// MarkdownEditor.tsx
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { db } from "../firebaseConfig"; // Import Firebase config
-import { addDoc, collection } from "firebase/firestore"; // Firestore methods
 
-const MarkdownEditor: React.FC = () => {
-  const [markdown, setMarkdown] = useState("");
-  const [status, setStatus] = useState<string>("");
+interface MarkdownEditorProps {
+    onSave: (content: string) => void;
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("Submitting...");
+const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ onSave }) => {
+    const [markdown, setMarkdown] = useState<string>("");
+    const [status, setStatus] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
-    try {
-      // Save data to Firebase Firestore
-      const docRef = await addDoc(collection(db, "markdownData"), {
-        content: markdown,
-        timestamp: new Date(), // Optional: Add a timestamp
-      });
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus("Saving...");
+        setError(null);
 
-      console.log("Document written with ID: ", docRef.id);
+        try {
+            onSave(markdown);
+            setMarkdown("");
+            setStatus("Successfully saved!");
+        } catch (err) {
+            console.error("Error saving content:", err);
+            setError("Failed to save content. Please try again.");
+            setStatus(null);
+        }
+    };
 
-      // Additional operations
-      setMarkdown(""); // Reset the editor
-      setStatus("Successfully submitted!");
-      alert("Your markdown has been successfully saved to Firebase.");
-    } catch (error) {
-      console.error("Error saving data to Firebase:", error);
-      setStatus("Failed to submit. Please try again.");
-    }
-  };
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={markdown}
-          onChange={(e) => setMarkdown(e.target.value)}
-          placeholder="Enter hospital details in markdown"
-          rows={10}
-          cols={50}
-        />
-        <br />
-        <button type="submit" className="bg-blue-600 text-white p-2 rounded">
-          Submit
-        </button>
-      </form>
-      {status && <p className="status-message">{status}</p>}
-      <h3>Preview:</h3>
-      <ReactMarkdown>{markdown}</ReactMarkdown>
-    </div>
-  );
+    return (
+        <div className="markdown-editor">
+            <h2 className="text-2xl font-bold mb-4">Markdown Editor</h2>
+            <form onSubmit={handleSubmit} className="mb-4">
+                <textarea
+                    value={markdown}
+                    onChange={(e) => setMarkdown(e.target.value)}
+                    placeholder="Enter hospital details in markdown"
+                    rows={10}
+                    cols={50}
+                    className="w-full p-2 border rounded mb-2"
+                />
+                <button
+                    type="submit"
+                    className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+                >
+                    Save
+                </button>
+            </form>
+            {status && <p className="text-green-600">{status}</p>}
+            {error && <p className="text-red-600">{error}</p>}
+            <h3 className="text-xl font-semibold mb-2">Preview:</h3>
+            <div className="border p-4 rounded bg-gray-100">
+                <ReactMarkdown>{markdown}</ReactMarkdown>
+            </div>
+        </div>
+    );
 };
 
 export default MarkdownEditor;

@@ -244,6 +244,7 @@ form input:focus {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -367,4 +368,3 @@ body {
 .theme-toggle-button:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
-

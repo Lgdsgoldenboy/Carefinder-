@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { fetchHospitals } from '../services/api';
+import { fetchHospitals } from '../services/Api';
 
 interface Hospital {
   id: string;

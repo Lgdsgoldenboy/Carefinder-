@@ -25,7 +25,7 @@ const SignUpPage: React.FC = () => {
       setSuccess("Verification email sent! Please check your inbox."); // Set success message
 
       // Optionally, you can redirect the user to a different page or keep them on the sign-up page
-      // navigate("/"); // Uncomment if you want to redirect after sign-up
+       navigate("/"); // Uncomment if you want to redirect after sign-up
     } catch (err: any) {
       setError(err.message);
     }

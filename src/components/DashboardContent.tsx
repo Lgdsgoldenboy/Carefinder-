@@ -1,13 +1,12 @@
-// src/components/DashboardContent.tsx
 import React, { useEffect, useState } from 'react';
-import { fetchHospitals, Hospital } from '../services/Api'; // Import the fetchHospitals function
+import { fetchHospitals, Hospital } from '../services/Api';
 
 const DashboardContent: React.FC = () => {
     const [hospitals, setHospitals] = useState<Hospital[]>([]);
+    const [filteredHospitals, setFilteredHospitals] = useState<Hospital[]>([]); // State for filtered hospitals
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>(''); // State for search query
-    const [filteredHospitals, setFilteredHospitals] = useState<Hospital[]>([]); // State for filtered hospitals
 
     useEffect(() => {
         const loadHospitals = async () => {
@@ -15,8 +14,12 @@ const DashboardContent: React.FC = () => {
                 const data = await fetchHospitals();
                 setHospitals(data);
                 setFilteredHospitals(data); // Initialize filtered hospitals with all hospitals
-            } catch (error) {
-                setError(error.message);
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err.message);
+                } else {
+                    setError('An unknown error occurred.');
+                }
             } finally {
                 setLoading(false);
             }
@@ -34,7 +37,7 @@ const DashboardContent: React.FC = () => {
     }, [searchQuery, hospitals]);
 
     const handleShare = (hospital: Hospital) => {
-        const shareableLink = `${window.location.origin}/hospital/${hospital.id}`; // Create a shareable link
+        const shareableLink = `${window.location.origin}/hospital/${hospital.id}`;
         const shareData = {
             title: hospital.name,
             text: `Check out this hospital: ${hospital.name}`,
@@ -43,15 +46,13 @@ const DashboardContent: React.FC = () => {
 
         if (navigator.share) {
             navigator.share(shareData)
-                .then(() => {
-                    console.log('Share successful');
-                })
-                .catch((error) => {
-                    console.error('Error sharing:', error);
-                });
+                .then(() => console.log('Share successful'))
+                .catch(err => console.error('Error sharing:', err));
         } else {
-            // Fallback for browsers that do not support the Web Share API
-            alert('Sharing is not supported in this browser. Here is the link: ' + shareableLink);
+            // Fallback: Copy to clipboard and alert
+            navigator.clipboard.writeText(shareableLink)
+                .then(() => alert('Link copied to clipboard: ' + shareableLink))
+                .catch(() => alert('Failed to copy the link. Here is the link: ' + shareableLink));
         }
     };
 
@@ -66,21 +67,28 @@ const DashboardContent: React.FC = () => {
                 type="text"
                 placeholder="Search hospitals..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)} // Update search query on input change
-                className="border rounded-lg p-2 mb-4 w-full" // Add some styling
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="border rounded-lg p-2 mb-4 w-full"
             />
-            <ul className="hospital-list">
-                {filteredHospitals.map(hospital => (
-                    <li key={hospital.id} className="hospital-item border p-2 mb-2 rounded">
-                        <h3 className="font-bold">{hospital.name}</h3>
-                        <p>{hospital.address}</p>
-                        <p>Phone: {hospital.phone_number}</p>
-                        <button onClick={() => handleShare(hospital)} className="share-button">
-                            Share Hospital
-                        </button>
-                    </li>
-                ))}
-            </ul>
+            {filteredHospitals.length === 0 ? (
+                <div>No hospitals found matching your search.</div>
+            ) : (
+                <ul className="hospital-list">
+                    {filteredHospitals.map(hospital => (
+                        <li key={hospital.id} className="hospital-item border p-2 mb-2 rounded">
+                            <h3 className="font-bold">{hospital.name}</h3>
+                            <p>{hospital.address}</p>
+                            <p>Phone: {hospital.phone_number}</p>
+                            <button
+                                onClick={() => handleShare(hospital)}
+                                className="share-button bg-blue-500 text-white p-2 rounded"
+                            >
+                                Share Hospital
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };

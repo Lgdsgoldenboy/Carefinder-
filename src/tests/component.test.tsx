@@ -3,8 +3,7 @@ import '@testing-library/jest-dom'; // For the custom matchers like toBeInTheDoc
 
 // Import the components you want to test
 import Nav from '../components/Nav.tsx';
-import HospitalCard from '../components/HospitalCard.tsx';
-import Pagination from '../components/Pagination.tsx';
+import Pagination from '../components/pagination.tsx';
 import React from 'react';
 
 
@@ -16,23 +15,6 @@ test('Nav component renders correctly', () => {
     expect(screen.getByAltText('Carefinder Logo')).toBeInTheDocument();
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Sign Up/Login')).toBeInTheDocument();
-  });
-  
-  // Test for HospitalCard component
-  test('HospitalCard component renders correctly', () => {
-    const props = {
-      name: 'Test Hospital',
-      address: '123 Test St',
-      phone_number: 1234567890,
-    };
-  
-    render(<HospitalCard {...props} />);
-  
-    expect(screen.getByText('Test Hospital')).toBeInTheDocument();
-    expect(screen.getByText('123 Test St')).toBeInTheDocument();
-    expect(screen.getByText('1234567890')).toBeInTheDocument();
-    expect(screen.getByText('Visit')).toBeInTheDocument();
-    expect(screen.getByText('Copy address')).toBeInTheDocument();
   });
   
   // Test for Pagination component

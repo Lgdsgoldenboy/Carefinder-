@@ -1,12 +1,14 @@
 // src/components/ThemeContext.tsx
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-// Create the context
+interface ThemeProviderProps {
+    children: ReactNode; // Define children prop
+}
+
 const ThemeContext = createContext<any>(null);
 
-// Create a provider component
-export const ThemeProvider: React.FC = ({ children }) => {
-    const [theme, setTheme] = useState('light'); // Default theme
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+    const [theme, setTheme] = useState('light');
 
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -19,5 +21,4 @@ export const ThemeProvider: React.FC = ({ children }) => {
     );
 };
 
-// Custom hook to use the ThemeContext
 export const useTheme = () => useContext(ThemeContext);
